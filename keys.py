@@ -1,14 +1,11 @@
-import configparser as cfg
-
-config = ".config.cfg"
+from dotenv import load_dotenv
+import os
 
 
 class Keys:
     def __init__(self):
-        self.alpaca_api_id = self.read_key_from_config_file(config, "alpaca_api_id")
-        self.alpaca_key = self.read_key_from_config_file(config, "alpaca_key")
-
-    def read_key_from_config_file(self, config, key):
-        parser = cfg.ConfigParser()
-        parser.read(config)
-        return parser.get("creds", key)
+        load_dotenv()  # take environment variables from .env.
+        self.alpaca_api_id = os.getenv("alpaca_api_id")
+        self.alpaca_key = os.getenv("alpaca_key")
+        print(self.alpaca_api_id)
+        print(self.alpaca_key)

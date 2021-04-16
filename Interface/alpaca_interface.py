@@ -2,20 +2,21 @@ import alpaca_trade_api as tradeapi
 
 
 class PolygonInterface:
-    def __init__(self, accountant):
+    def __init__(self, key):
         self.api = tradeapi.REST(
-            accountant.alpaca_api_id,
-            accountant.alpaca_key,
-            "https://paper-api.alpaca.markets",
+            key_id=key.alpaca_api_id,
+            secret_key=key.alpaca_key,
+            base_url="https://paper-api.alpaca.markets",
             api_version="v2",
         )
 
-    def get_polygon_financial_statement(self, symbol, limit):
+    def get_polygon_financial_statement(self, symbol, limit=5):
         params = {}
         params["limit"] = limit
         financial_statement = self.api.polygon.get(
             path="/reference/financials/" + symbol, params=params, version="v2"
         )
+        print(vars(financial_statement))
         return financial_statement["results"]
 
 
