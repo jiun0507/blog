@@ -18,5 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("financial_statement/", include("financial_statement.urls")),
+    path(
+        "financial_statement/", include("financial_statement.urls")
+    ),  # financial statement view
 ]

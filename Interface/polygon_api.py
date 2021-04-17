@@ -11,8 +11,8 @@ return data types are here : https://github.com/polygon-io/client-python/blob/ma
 
 
 class PolygonInterface:
-    def __init__(self):
-        self.client = RESTClient("9RQWB5_yZSd_Bc2_x3Ox_b7MBoBC6An8tHBh6M")
+    def __init__(self, key):
+        self.client = RESTClient(key.polygon_api_key)
 
     def get_polygon_financial_statement(self, symbol, limit=1):
         params = {}
