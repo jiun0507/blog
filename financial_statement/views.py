@@ -6,8 +6,6 @@ from Interface.polygon_api import PolygonInterface
 from django.views import View
 from keys import Keys
 
-# Create your views here.
-
 
 class FinancialStatementView(View):
     def get(self, request):

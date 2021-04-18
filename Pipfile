@@ -8,6 +8,7 @@ django = "*"
 alpaca-trade-api = "*"
 python-dotenv = "*"
 polygon-api-client = "*"
+pillow = "*"
 
 [dev-packages]
 black = "*"
