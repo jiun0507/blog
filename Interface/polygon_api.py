@@ -14,11 +14,12 @@ class PolygonInterface:
     def __init__(self, key):
         self.client = RESTClient(key.polygon_api_key)
 
-    def get_polygon_financial_statement(self, symbol, limit=1):
+    def get_polygon_financial_statement(self, symbol, limit=1, typ="Y"):
         params = {}
         params["limit"] = limit
         financial_statement = self.client.reference_stock_financials(
             symbol=symbol,
             limit=limit,
+            type=typ,
         )
         return financial_statement.results
