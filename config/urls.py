@@ -22,4 +22,5 @@ urlpatterns = [
         "financial_statement/", include("financial_statement.urls")
     ),  # financial statement view
     path("", include("core.urls")),
+    path("valuation", include("valuation.urls")),
 ]

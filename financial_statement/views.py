@@ -5,6 +5,7 @@ from django.shortcuts import render
 from Interface.polygon_api import PolygonInterface
 from django.views import View
 from keys import Keys
+import json
 
 
 class FinancialStatementView(View):
@@ -12,8 +13,12 @@ class FinancialStatementView(View):
         polygon = PolygonInterface(Keys())
         ticker = request.GET.get("ticker", "AAPL")
 
-        polygon_financila_statements = polygon.get_polygon_financial_statement(ticker)
-        print(len(polygon_financila_statements))
-        print(polygon_financila_statements[0])
+        polygon_financila_statements = polygon.get_polygon_financial_statement(
+            ticker, limit=5
+        )
 
-        return HttpResponse("This is financial statements app.")
+        context = {
+            "stock": ticker,
+            "financial_statements": polygon_financila_statements,
+        }
+        return render(request, "get_financial_statement.html", context=context)
