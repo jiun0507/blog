@@ -1,4 +1,3 @@
-import string
 from dataclasses import dataclass
 from datetime import datetime
 
@@ -8,11 +7,11 @@ from django.db.models.fields import DateTimeField
 
 @dataclass
 class FinancialStatementEntity:
-    ticker: string
-    period: string
-    calendar_date: string
-    report_period: string
-    updated: string
+    ticker: str
+    period: str
+    calendar_date: str
+    report_period: str
+    updated: str
     accumulated_other_comprehensive_income: int
     assets: int
     assets_average: int
@@ -121,11 +120,11 @@ class FinancialStatementEntity:
 
 
 class FinancialStatement(models.Model):
-    ticker = models.TextField()
-    period = models.TextField()
-    calendar_date = models.TextField()
-    report_period = models.TextField()
-    updated = models.TextField()
+    ticker = models.CharField(max_length=10)
+    period = models.CharField(max_length=10)
+    calendar_date = models.CharField(max_length=10)
+    report_period = models.CharField(max_length=10)
+    updated = models.CharField(max_length=10)
     accumulated_other_comprehensive_income = models.IntegerField()
     assets = models.IntegerField()
     assets_average = models.IntegerField()

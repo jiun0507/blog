@@ -16,10 +16,6 @@ class PolygonInterface:
         self.client = RESTClient(key.polygon_api_key)
 
     def map_polygon_fs_to_fs_entity(self, polygon_financial_statements):
-        print(
-            polygon_financial_statements[0]["calendarDate"],
-            polygon_financial_statements[0]["reportPeriod"],
-        )
         return [
             FinancialStatement(
                 ticker=polygon_fs["ticker"],
@@ -143,9 +139,10 @@ class PolygonInterface:
         ]
 
     def get_polygon_financial_statement(self, symbol, limit=1, type_="Y"):
-        financial_statement = self.client.reference_stock_financials(
+        financial_statements = self.client.reference_stock_financials(
             symbol=symbol,
             limit=limit,
             type=type_,
-        )
-        return financial_statement.results
+        ).results
+
+        return self.map_polygon_fs_to_fs_entity(financial_statements)

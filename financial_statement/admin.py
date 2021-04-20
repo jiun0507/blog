@@ -12,7 +12,9 @@ class FinancialStatementAdmin(admin.ModelAdmin):
         "period",
         "calendar_date",
         "report_period",
-        "assets",
     )
 
-    list_filter = ("ticker",)
+    list_filter = (
+        "ticker",
+        "period",
+    )

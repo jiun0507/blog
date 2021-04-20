@@ -3,7 +3,7 @@ from keys import Keys
 from financial_statement.models import FinancialStatement
 
 
-class GetFinancialStatementUseCase:
+class FinancialStatementUseCase:
     def __init__(self):
         self.polygon = PolygonInterface(Keys())
 
@@ -23,15 +23,14 @@ class GetFinancialStatementUseCase:
                     )
                 )
 
-                # print(polygon_financial_statements)
-                polygon_financial_statements = self.polygon.map_polygon_fs_to_fs_entity(
-                    polygon_financial_statements
-                )
-
                 if len(financial_statements) < len(polygon_financial_statements):
                     financial_statements = polygon_financial_statements
                     for polygon_fs in polygon_financial_statements:
-                        polygon_fs.save()
+                        try:
+                            print("Saved")
+                            polygon_fs.save()
+                        except Exception as err:
+                            print(err)
 
         except Exception as err:
             print(err)
