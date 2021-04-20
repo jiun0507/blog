@@ -1,32 +1,38 @@
-from os import get_blocking
+from financial_statement.use_case.get_financial_statement import (
+    GetFinancialStatementUseCase,
+)
+from math import ceil
 
 from django.http import HttpResponse
-from django.shortcuts import render
-from Interface.polygon_api import PolygonInterface
+from django.shortcuts import redirect, render
 from django.views import View
+
+from Interface.polygon_api import PolygonInterface
 from keys import Keys
-import json
 
 
 class FinancialStatementView(View):
-    def get(self, request):
-        polygon = PolygonInterface(Keys())
-        ticker = request.GET.get("ticker", "AAPL")
-        typ = request.GET.get("type", "Y")
-        limit = int(request.GET.get("limit", 1))
-        page = int(request.GET.get("page", 1))
+    def __init__(self):
+        self.use_case = GetFinancialStatementUseCase()
 
-        polygon_financila_statements = polygon.get_polygon_financial_statement(
-            ticker,
-            limit=limit,
-            typ=typ,
+    def get(self, request):
+        page_size = 1
+        ticker = request.GET.get("ticker", "AAPL") or "AAPL"
+        period = request.GET.get("period", "Y") or "Y"
+        page = int(request.GET.get("page", 1)) or 1
+        print(ticker, period, page)
+
+        financial_statements = self.use_case.get_financial_statement(
+            ticker=ticker, page_size=page_size, page=page, period=period
         )
 
-        financial_statements = polygon_financila_statements[page - 1 : 1]
+        page_limit = len(financial_statements)
 
         context = {
             "stock": ticker,
             "financial_statements": financial_statements,
+            "page": page,
+            "page_limit": page_limit,
         }
 
         return render(request, "get_financial_statement.html", context=context)

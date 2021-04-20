@@ -1,3 +1,11 @@
-{% for financial_statement in financial_statements %}
-    <h4>{{financial_statement}}</h4>
-{% endfor %}
+{% extends "base.html" %}
+{% block title %}
+    home
+{% endblock %}
+{% block content %}
+    {% for financial_statement in financial_statements %}
+        <h4>{{financial_statement}}</h4>
+    {% endfor %}
+    Page {{page}} of {{page_limit}}
+{% endblock %}
+
