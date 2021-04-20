@@ -1,6 +1,5 @@
 from polygon import RESTClient
-from polygon.rest.models.definitions import Financial
-from financial_statement.models import FinancialStatementEntity, FinancialStatement
+from financial_statement.models import FinancialStatement
 
 """
 This is interface for polygon.io.

@@ -1,6 +1,7 @@
 from financial_statement.use_case.get_financial_statement import (
     FinancialStatementUseCase,
 )
+import json
 from math import ceil
 
 from django.http import HttpResponse
@@ -36,3 +37,16 @@ class FinancialStatementView(View):
         }
 
         return render(request, "get_financial_statement.html", context=context)
+
+    def post(self, request):
+        body_unicode = request.body.decode("utf-8")
+        body = json.loads(body_unicode)
+        ticker = body.get("ticker", "AAPL")
+        period = body.get("period", "Y") or "Y"
+        limit = body.get("limit", 1) or 1
+
+        self.use_case.post_financial_statement(
+            ticker=ticker, limit=limit, period=period
+        )
+
+        return HttpResponse("Successfully posted")
