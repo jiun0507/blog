@@ -16,12 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
+# namespace is used to create url tags to be used in the html files
 urlpatterns = [
     path("admin/", admin.site.urls),
     path(
         "financial_statement/",
         include("financial_statement.urls", namespace="financial_statement"),
-    ),  # financial statement view
+    ),
     path("", include("core.urls", namespace="core")),
     path("valuation", include("valuation.urls")),
 ]

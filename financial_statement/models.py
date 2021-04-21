@@ -3,6 +3,7 @@ from datetime import datetime
 
 from django.db import models
 from django.db.models.fields import DateTimeField
+from django.urls import reverse
 
 
 @dataclass
@@ -230,6 +231,11 @@ class FinancialStatement(models.Model):
     tax_liabilities = models.IntegerField()
     tangible_assets_book_value_per_share = models.IntegerField()
     working_capital = models.IntegerField()
+
+    def get_absolute_url(self):
+        return reverse(
+            "financial_statement:financial_statement", kwargs={"id": self.id}
+        )
 
     class Meta:
         constraints = [

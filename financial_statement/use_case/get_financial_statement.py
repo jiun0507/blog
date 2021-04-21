@@ -26,7 +26,7 @@ class FinancialStatementUseCase:
             financial_statement = FinancialStatement.objects.get(
                 id=id,
             )
-        except Exception as err:
+        except FinancialStatement.DoesNotExist as err:
             print(err)
             raise err
         return financial_statement

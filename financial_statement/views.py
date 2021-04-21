@@ -1,11 +1,15 @@
+import json
+from math import ceil
+
+from django.http import HttpResponse
+from django.shortcuts import redirect, render
+from django.urls import reverse
+from django.views import View
+
 from financial_statement.use_case.get_financial_statement import (
     FinancialStatementUseCase,
 )
-import json
-from math import ceil
-from django.http import HttpResponse
-from django.shortcuts import redirect, render
-from django.views import View
+from django.http import Http404
 
 
 class FinancialStatementView(View):
@@ -13,7 +17,11 @@ class FinancialStatementView(View):
         self.use_case = FinancialStatementUseCase()
 
     def get(self, request, id):
-        financial_statement = self.use_case.get_financial_statement(id)
+        try:
+            financial_statement = self.use_case.get_financial_statement(id)
+        except Exception as err:
+            raise Http404()
+
         context = {
             "financial_statement": financial_statement,
         }
