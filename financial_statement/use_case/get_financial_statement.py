@@ -1,4 +1,3 @@
-import polygon
 from Interface.polygon_api import PolygonInterface
 from keys import Keys
 from financial_statement.models import FinancialStatement
@@ -8,7 +7,7 @@ class FinancialStatementUseCase:
     def __init__(self):
         self.polygon = PolygonInterface(Keys())
 
-    def get_financial_statement(self, ticker, page_size, page, period):
+    def get_financial_statement_list(self, ticker, page_size, page, period):
         try:
             limit = page_size * page
             offset = limit - page_size
@@ -21,6 +20,16 @@ class FinancialStatementUseCase:
             return []
 
         return financial_statements[offset:limit]
+
+    def get_financial_statement(self, id):
+        try:
+            financial_statement = FinancialStatement.objects.get(
+                id=id,
+            )
+        except Exception as err:
+            print(err)
+            raise err
+        return financial_statement
 
     def post_financial_statement(self, ticker, period, limit):
         try:

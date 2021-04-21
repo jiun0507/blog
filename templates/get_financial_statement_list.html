@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+    home
+{% endblock %}
+{% block content %}
+    {% for financial_statement in financial_statements %}
+        <h4>
+            <a href="{% url "financial_statement:financial_statement" financial_statement.id %}">
+                {{financial_statement.id}} {{financial_statement.ticker}} {{financial_statement.period}} {{financial_statement.report_period}}
+            </a>
+        </h4>
+    {% endfor %}
+    Page {{page}} of {{page_limit}}
+{% endblock %}
+
