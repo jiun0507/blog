@@ -6,7 +6,7 @@ from keys import Keys
 
 
 def ValuationPage(request):
-    return render(request, "valuation_template.html")
+    return render(request, "markdown_template.html")
 
 
 class ValuationView(View):
