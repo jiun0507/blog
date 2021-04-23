@@ -9,7 +9,11 @@
     <title>{% block title %}{%endblock%}</title>
 </head>
 <body class = "text-gray-700">
-    {% include "partials/header.html" %}
+    <header class="container max-w-full flex items-center justify-between px-6 h-16 border-b border-gray-400 bg-gray-50">
+        {% include "partials/nav.html" %}
+    </header>
+    {% block search_bar %}
+    {% endblock %}
     {% block content %}
     {% endblock %}
     {% include "partials/footer.html" %}

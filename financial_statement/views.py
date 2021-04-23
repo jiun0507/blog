@@ -46,7 +46,7 @@ class FinancialStatementListView(View):
         page_limit = ceil(len(financial_statements) / page_size)
 
         if page_limit == 0:
-            return redirect("http_404.html")
+            raise Http404()
 
         print(ticker, financial_statements, page, page_limit)
         context = {
