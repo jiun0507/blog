@@ -31,7 +31,7 @@ SECRET_KEY = "django-insecure-(v5(ftl01g@ver&9(cu3dd1fs+eqd#d_9#@=mtr6g9*^t2cta9
 DEBUG = True
 # DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["investurtle.eba-3i8mixtz.us-west-2.elasticbeanstalk.com"]
 # ALLOWED_HOSTS = "*"
 
 # Application definition
