@@ -25,5 +25,6 @@ urlpatterns = [
         include("financial_statement.urls", namespace="financial_statement"),
     ),
     path("", include("core.urls", namespace="core")),
-    path("valuation", include("valuation.urls")),
+    path("valuation/", include("valuation.urls", namespace="valuation")),
+    path("user/", include("user.urls", namespace="user")),
 ]

@@ -6,8 +6,11 @@
 </div>
 <div>
     <ul class="flex .justify-between text-sm font-medium">
-        <li class="ml-8"><a href="#">Login</a></li>
-        <li class="ml-8"><a href="#">Logout</a></li>
-        <li class="ml-8"><a href="#">Signin</a></li>
+        {% if user.is_authenticated %}
+            <li class="ml-8"><a href="{% url "user:logout" %}">Logout</a></li>
+        {% else %}
+            <li class="ml-8"><a href="{% url "user:login" %}">Login</a></li>
+            <li class="ml-8"><a href="#">Signin</a></li>
+        {% endif%}
     </ul>
 </div>
