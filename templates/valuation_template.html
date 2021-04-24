@@ -1,3 +1,13 @@
-<form>
-    <input placeholder="Name of the stock" />
-</form>
+
+{% extends "base.html" %}
+{% block title %}
+    home
+{% endblock %}
+{% block content %}
+    <form method="post", action="{% url "valuation:report" %}">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" name="process" value="process formula" />
+        <input type="submit" name="submit" value="Submit" />
+    </form>
+{%endblock%}

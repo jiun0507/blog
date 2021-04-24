@@ -9,7 +9,16 @@ class ValuationCategory(models.Model):
 class Valuation(models.Model):
     """Review Model Definition"""
 
+    DCF = "dcf"
+    REPRODUCTIOIN_COST = "reproduction_cst"
+    OTHER = "other"
+    METHOD_CHOICES = (
+        (DCF, "DCF"),
+        (REPRODUCTIOIN_COST, "Reproduction_cost"),
+        (OTHER, "Other"),
+    )
+    ticker = models.CharField(max_length=10)
     review = models.TextField()
-    method = models.ForeignKey(ValuationCategory, on_delete=models.CASCADE)
+    method = models.CharField(choices=METHOD_CHOICES, max_length=20, blank=True)
     value = models.FloatField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
