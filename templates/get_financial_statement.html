@@ -3,6 +3,8 @@
     home
 {% endblock %}
 {% block content %}
-    <h4>{{financial_statement.ticker}}</h4>
+    {% for key, val in financial_statement.items %}
+        <h4>{{key}}: {{val}}</h4>
+    {% endfor %}
 {% endblock %}
 

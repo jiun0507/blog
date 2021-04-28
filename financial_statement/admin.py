@@ -8,6 +8,7 @@ class FinancialStatementAdmin(admin.ModelAdmin):
     """ Reservation Admin Definition """
 
     list_display = (
+        "id",
         "ticker",
         "period",
         "calendar_date",

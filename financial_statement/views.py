@@ -23,7 +23,7 @@ class FinancialStatementView(View):
             raise Http404()
 
         context = {
-            "financial_statement": financial_statement,
+            "financial_statement": financial_statement.__dict__,
         }
 
         return render(request, "get_financial_statement.html", context=context)
