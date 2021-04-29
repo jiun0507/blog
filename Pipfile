@@ -9,6 +9,7 @@ alpaca-trade-api = "*"
 python-dotenv = "*"
 polygon-api-client = "*"
 pillow = "*"
+requests = "*"
 
 [dev-packages]
 black = "*"
