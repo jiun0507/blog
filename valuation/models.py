@@ -17,7 +17,7 @@ class Valuation(models.Model):
         (REPRODUCTIOIN_COST, "Reproduction_cost"),
         (OTHER, "Other"),
     )
-    ticker = models.CharField(max_length=10)
+    ticker = models.CharField(max_length=10, null=True)
     review = models.TextField()
     method = models.CharField(choices=METHOD_CHOICES, max_length=20, blank=True)
     value = models.FloatField()

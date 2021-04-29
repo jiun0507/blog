@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "valuation",
     "user",
     "core",
+    "company",
 ]
 
 MIDDLEWARE = [
