@@ -1,3 +1,15 @@
 from django.contrib import admin
+from . import models
 
-# Register your models here.
+
+@admin.register(models.CompanyModel)
+class CompanyModelAdmin(admin.ModelAdmin):
+
+    """ Reservation Admin Definition """
+
+    list_display = (
+        "ticker",
+        "name",
+        "locale",
+        "active",
+    )

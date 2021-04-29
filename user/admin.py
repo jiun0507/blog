@@ -5,7 +5,7 @@ from . import models
 @admin.register(models.User)
 class UserAdmin(admin.ModelAdmin):
 
-    """ Reservation Admin Definition """
+    """ User Admin Definition """
 
     list_display = (
         "username",
