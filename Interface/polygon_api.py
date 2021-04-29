@@ -145,3 +145,25 @@ class PolygonInterface:
         ).results
 
         return self.map_polygon_fs_to_fs_entity(financial_statements)
+
+    def get_polygon_company_list(
+        self,
+        sort="ticker",
+        market="stocks",
+        locale="us",
+        perpage=50,
+        page=1,
+        active="true",
+    ):
+        response = self.client.reference_tickers(
+            sort=sort,
+            market=market,
+            locale=locale,
+            perpage=perpage,
+            page=page,
+            active=active,
+        )
+        if response.status != "OK":
+            raise Exception
+
+        return response.tickers
