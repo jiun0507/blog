@@ -10,6 +10,7 @@ python-dotenv = "*"
 polygon-api-client = "*"
 pillow = "*"
 requests = "*"
+django-money = "*"
 
 [dev-packages]
 black = "*"
