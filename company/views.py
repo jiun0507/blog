@@ -11,6 +11,6 @@ class CompanyView(View):
         company = self.company_profile_use_case.get_company_profile(id=id)
 
         context = {
-            "company": company,
+            "company": company.__dict__,
         }
         return render(request, "company/company.html", context=context)

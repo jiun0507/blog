@@ -4,7 +4,9 @@
 {% endblock %}
 {% block content %}
     {% for key, val in financial_statement.items %}
-        <h4>{{key}}: {{val}}</h4>
+        {% if key != "_state" %}
+            <h4>{{key}}: {{val}}</h4>  
+        {% endif %}
     {% endfor %}
 {% endblock %}
 

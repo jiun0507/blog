@@ -18,17 +18,17 @@
     <section>
         <h4> Ticker result </h4>
         {% for company in ticker_list %}
-            <tr class="hover:bg-gray-100 border-b border-gray-200 py-10">
-                {{company.ticker}}{{company.name}}
-            </tr>
+            <a href="{% url "company:profile" company.id %}">
+                {{company.ticker}} : {{company.name}}
+            </a>
         {% endfor %}
     </section>
     <section>
         <h4> Name result </h4>
         {% for company in name_list %}
-            <tr class="hover:bg-gray-100 border-b border-gray-200 py-10">
-                {{company.ticker}}{{company.name}}
-            </tr>
+            <a href="{% url "company:profile" company.id %}">
+                {{company.ticker}}: {{company.name}}
+            </a>
         {% endfor %}
     </section>
 
