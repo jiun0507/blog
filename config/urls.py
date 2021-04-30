@@ -28,4 +28,5 @@ urlpatterns = [
     path("valuation/", include("valuation.urls", namespace="valuation")),
     path("user/", include("user.urls", namespace="user")),
     path("company/", include("company.urls", namespace="company")),
+    path("notification/", include("notification.urls", namespace="notification")),
 ]
