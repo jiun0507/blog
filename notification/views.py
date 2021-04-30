@@ -31,3 +31,11 @@ class NotificationView(View):
             )
 
         return HttpResponse("successfully posted")
+
+    def get(self, request):
+        user = request.user
+        notifications = Notification.objects.filter(user=user)
+        context = {
+            "notifications": notifications,
+        }
+        return render(request, "notification/notification_list.html", context=context)
