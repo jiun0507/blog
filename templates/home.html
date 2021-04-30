@@ -47,7 +47,9 @@
             <h4> Companies </h4>
             {% for company in companies %}
                 <h4>
-                    {{company.name}}
+                    <a href="{% url "company:profile" company.id %}">
+                        {{company.name}}
+                    </a>
                 </h4>
             {% endfor %}
         </div>
