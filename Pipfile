@@ -10,12 +10,14 @@ python-dotenv = "*"
 polygon-api-client = "*"
 pillow = "*"
 requests = "*"
-django-money = "*"
+gunicorn = "*"
+dj-database-url = "*"
+psycopg2-binary = "*"
+whitenoise = "*"
 
 [dev-packages]
 black = "*"
 flake8 = "*"
-awsebcli = "*"
 
 [requires]
 python_version = "3.9"
