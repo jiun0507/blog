@@ -36,7 +36,7 @@ SECRET_KEY = os.environ.get(
 DEBUG = bool(os.environ.get("DEBUG", True))
 # DEBUG = False
 
-ALLOWED_HOSTS = [".elasticbeanstalk.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["tranquil-journey-32319.herokuapp.com", "127.0.0.1"]
 # ALLOWED_HOSTS = "*"
 
 # Application definition
