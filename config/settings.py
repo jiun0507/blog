@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 from django.conf.global_settings import STATICFILES_DIRS
 
@@ -28,9 +29,8 @@ AUTH_USER_MODEL = "user.User"
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get(
-    "SECRET_KEY", "django-insecure-(v5(ftl01g@ver&9(cu3dd1fs+eqd#d_9#@=mtr6g9*^t2cta9"
-)
+load_dotenv()  # load variables from .env
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get("DEBUG", True))
