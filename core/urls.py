@@ -7,6 +7,6 @@ from core.views import home_view, search
 app_name = "core"
 
 urlpatterns = [
-    path("home/", home_view, name="home"),
+    path("", home_view, name="home"),
     path("search/", search, name="search"),
 ]
