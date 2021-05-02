@@ -184,13 +184,13 @@ Libraries and templates used
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/jiun0507/repo.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/jiun0507/investurtle.svg?style=for-the-badge
 [contributors-url]: https://github.com/jiun0507/investurtle/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/jiun0507/repo.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/jiun0507/investurtle.svg?style=for-the-badge
 [forks-url]: https://github.com/jiun0507/investurtle/network/members
-[stars-shield]: https://img.shields.io/github/stars/jiun0507/repo.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/jiun0507/investurtle.svg?style=for-the-badge
 [stars-url]: https://github.com/jiun0507/investurtle/stargazers
-[issues-shield]: https://img.shields.io/github/issues/jiun0507/repo.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/jiun0507/investurtle.svg?style=for-the-badge
 [issues-url]: https://github.com/jiun0507/investurtle/issues
-[license-shield]: https://img.shields.io/github/license/jiun0507/repo.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/jiun0507/investurtle.svg?style=for-the-badge
 [linkedin-url]: https://linkedin.com/in/jiun0507
