@@ -8,7 +8,7 @@
     <ul class="flex .justify-between text-sm font-medium">
         {% if user.is_authenticated %}
             <li class="ml-8"><a href="{% url "user:logout" %}">Logout</a></li>
-            <li class="ml-8"><a href="{% url "notification:user" %}">Notification</a></li>
+            <li class="ml-8"><a href="{% url "notification:form" %}">Notification</a></li>
         {% else %}
             <li class="ml-8"><a href="{% url "user:login" %}">Login</a></li>
             <li class="ml-8"><a href="{% url "user:signup" %}">Sign up</a></li>
