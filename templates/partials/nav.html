@@ -11,7 +11,7 @@
             <li class="ml-8"><a href="{% url "notification:user" %}">Notification</a></li>
         {% else %}
             <li class="ml-8"><a href="{% url "user:login" %}">Login</a></li>
-            <li class="ml-8"><a href="#">Signin</a></li>
+            <li class="ml-8"><a href="{% url "user:signup" %}">Sign up</a></li>
         {% endif%}
     </ul>
 </div>

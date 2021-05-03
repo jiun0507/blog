@@ -43,3 +43,19 @@ class UserView(View):
             "user": user,
         }
         return render(request, "user/user.html", context=context)
+
+
+class SignUpView(FormView):
+
+    template_name = "user/signup.html"
+    form_class = forms.SignUpForm
+    success_url = reverse_lazy("core:home")
+
+    def form_valid(self, form):
+        form.save()
+        username = form.cleaned_data.get("username")
+        password = form.cleaned_data.get("password")
+        user = authenticate(self.request, username=username, password=password)
+        if user is not None:
+            login(self.request, user)
+        return super().form_valid(form)
