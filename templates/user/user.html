@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}
+    home
+{% endblock %}
+{% block content %}
+    {{user.name}} {{user.email}}
+    Notifications:
+    {% for notification in notifications%}
+        <a href="{% url "notification:user" notification.id %}">
+            {{notification.company}}: {{notification.price}}
+        </a>
+    {% endfor %}
+    Valuations:
+    {% for valuation in valuations%}
+        {{valuation.ticker}}: {{valuation.value}} / {{valuation.review}}
+
+    {% endfor %}
+
+{% endblock %}
+

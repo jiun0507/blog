@@ -32,10 +32,13 @@ class NotificationView(View):
 
         return HttpResponse("successfully posted")
 
-    def get(self, request):
+    def get(self, request, id):
         user = request.user
-        notifications = Notification.objects.filter(user=user)
+        try:
+            notification = Notification.objects.get(user=user, id=id)
+        except Notification.DoesNotExist as err:
+            raise err
         context = {
-            "notifications": notifications,
+            "notification": notification,
         }
-        return render(request, "notification/notification_list.html", context=context)
+        return render(request, "notification/notification.html", context=context)

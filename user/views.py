@@ -5,6 +5,8 @@ from django.urls import reverse_lazy, reverse
 from django.views import View
 from django.views.generic import FormView
 
+from notification.models import Notification
+from valuation.models import Valuation
 from . import forms
 
 
@@ -27,3 +29,17 @@ class LogoutView(View):
     def get(self, request):
         logout(request)
         return redirect(reverse("core:home"))
+
+
+class UserView(View):
+    def get(self, request):
+        user = request.user
+        valuations = Valuation.objects.filter(user=user)
+        notifications = Notification.objects.filter(user=user)
+
+        context = {
+            "notifications": notifications,
+            "valuations": valuations,
+            "user": user,
+        }
+        return render(request, "user/user.html", context=context)
