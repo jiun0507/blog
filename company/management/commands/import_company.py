@@ -1,5 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
+from django.db import IntegrityError
 from polygon.rest.models.definitions import Company
+
 from company.models import CompanyModel
 from Interface.polygon_api import PolygonInterface
 from keys import Keys
@@ -19,11 +21,14 @@ class Command(BaseCommand):
         for page_num in list(range(start, end)):
             tickers = self.polygon.get_polygon_company_list(page=page_num)
             for ticker in tickers:
-                company = CompanyModel(
-                    ticker=ticker["ticker"],
-                    name=ticker["name"],
-                    market=ticker["market"],
-                    locale=ticker["locale"],
-                    active=ticker["active"],
-                )
-                company.save()
+                try:
+                    company = CompanyModel(
+                        ticker=ticker["ticker"],
+                        name=ticker["name"],
+                        market=ticker["market"],
+                        locale=ticker["locale"],
+                        active=ticker["active"],
+                    )
+                    company.save()
+                except IntegrityError:
+                    pass

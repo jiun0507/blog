@@ -149,6 +149,7 @@ class PolygonInterface:
     def get_polygon_company_list(
         self,
         sort="ticker",
+        type="cs",
         market="stocks",
         locale="us",
         perpage=50,
@@ -157,6 +158,7 @@ class PolygonInterface:
     ):
         response = self.client.reference_tickers(
             sort=sort,
+            type=type,
             market=market,
             locale=locale,
             perpage=perpage,
