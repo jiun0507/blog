@@ -13,9 +13,9 @@
                 <div class="image overflow-hidden">
                     <img class="h-auto w-full mx-auto" src="{% static 'img/investurtle.png' %}" alt="">
                 </div>
-                <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{user.name}}</h1>
+                <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{user.first_name}} {{user.last_name}}</h1>
                 <h3 class="text-gray-600 font-lg text-semibold leading-6">Owner at Her Company Inc.</h3>
-                <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt</p>
+                <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">{{user.bio}}</p>
                 <ul class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                     <li class="flex items-center py-3">
                         <span>Status</span>
@@ -25,7 +25,7 @@
                     </li>
                     <li class="flex items-center py-3">
                         <span>Member since</span>
-                        <span class="ml-auto">Nov 07, 2016</span>
+                        <span class="ml-auto">{{user.date_joined}}</span>
                     </li>
                 </ul>
             </div>
@@ -39,7 +39,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                     </span>
-                    <span>Similar Profiles</span>
+                    <span>Following</span>
                 </div>
                 <div class="grid grid-cols-3">
                     <div class="text-center my-2">
@@ -100,22 +100,14 @@
                             <div class="px-4 py-2">{{user.email}}</div>
                         </div>
                         <div class="grid grid-cols-2">
-                            <div class="px-4 py-2 font-semibold">Current Address</div>
-                            <div class="px-4 py-2">Beech Creek, PA, Pennsylvania</div>
-                        </div>
-                        <div class="grid grid-cols-2">
-                            <div class="px-4 py-2 font-semibold">Permanant Address</div>
-                            <div class="px-4 py-2">Arlington Heights, IL, Illinois</div>
-                        </div>
-                        <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Email.</div>
                             <div class="px-4 py-2">
                                 <a class="text-blue-800" href="mailto:jane@example.com">{{user.email}}</a>
                             </div>
                         </div>
                         <div class="grid grid-cols-2">
-                            <div class="px-4 py-2 font-semibold">Birthday</div>
-                            <div class="px-4 py-2">Feb 06, 1998</div>
+                            <div class="px-4 py-2 font-semibold">Currency</div>
+                            <div class="px-4 py-2">{{user.currency}}</div>
                         </div>
                     </div>
                 </div>

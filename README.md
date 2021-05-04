@@ -23,7 +23,7 @@
 
   <p align="center">
     <br />
-    <a href="https://tranquil-journey-32319.herokuapp.com/home/">View Demo</a>
+    <a href="https://tranquil-journey-32319.herokuapp.com/">View Demo</a>
     ·
     <a href="https://github.com/jiun0507/investurtle/issues">Report Bug</a>
     ·
