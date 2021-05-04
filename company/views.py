@@ -14,7 +14,8 @@ class CompanyView(View):
 
     def get(self, request, id):
         company = self.company_profile_use_case.get_company_profile(id=id)
-        prices = self.iex.get_chart_data("aapl", "5d")
+        prices = self.iex.get_chart_data(company.ticker, "5d")
+
         context = {
             "company": company.__dict__,
             "prices": prices,

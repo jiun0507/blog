@@ -76,14 +76,20 @@
     let stockTicker = function(){
         prices_json = '{{ prices|js }}'
         prices = JSON.parse(prices_json)
-        
+        chartPrices = []
+        prices.forEach(pr => {
+            chartPrices.push(pr.close)
+        })
+        chartLabels = []
+        prices.forEach(pr => {
+            chartLabels.push(pr.date)
+        })
         return {
             stockFullName: '{{company.name|safe}}.',
             stockShortName: '{{company.ticker|safe}}',
-
             price: {
-                current: 2.230,
-                open: 2.230,
+                current: prices[0].close,
+                open: prices[0].open,
                 low: 2.215,
                 high: 2.325,
                 cap: 93765011,
@@ -91,9 +97,8 @@
                 dividend: 1.67
             },
             chartData: {
-                labels: ['10:00','','','','12:00','','','','2:00','','','','4:00'],
-                data: [prices[0].close,prices[0].close,prices[0].close,prices[0].close,prices[0].close,prices[0].close,prices[0].close
-                ,prices[0].close,prices[0].close,prices[0].close,prices[0].close,prices[0].close,prices[0].close],
+                labels: chartLabels,
+                data: chartPrices,
             },
             renderChart: function(){
                 let c = false;
