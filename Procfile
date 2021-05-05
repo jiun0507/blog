@@ -1,2 +1,2 @@
 web: gunicorn config.wsgi --log-file -
-worker: python manage.py qcluster --settings=config.settings
+worker: python manage.py qcluster
