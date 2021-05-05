@@ -92,9 +92,10 @@ TEMPLATES = [
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": os.getenv("REDIS_URL"),
+        "LOCATION": os.getenv("REDIS_TLS_URL"),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "REDIS_CLIENT_KWARGS": {"ssl": True},
         },
     }
 }
