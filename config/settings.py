@@ -112,7 +112,6 @@ Q_CLUSTER = {
     "django_redis": "default",
 }
 print(Q_CLUSTER)
-
 WSGI_APPLICATION = "config.wsgi.application"
 
 
