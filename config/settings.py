@@ -89,12 +89,17 @@ TEMPLATES = [
     },
 ]
 
+# Django-redis is used to configure the redis.
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
         "LOCATION": os.getenv("REDIS_TLS_URL"),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            # Since the Redis's url is rediss(SSL wrapped TCP socket connection), set SSL certication to null to connect with
+            # redis without a stunnel.
+            # https://github.com/jazzband/django-redis
+            # https://devcenter.heroku.com/articles/securing-heroku-redis
             "CONNECTION_POOL_KWARGS": {"ssl_cert_reqs": None},
         },
     }
@@ -107,12 +112,14 @@ Q_CLUSTER = {
     "compress": True,
     "cpu_affinity": 1,
     "save_limit": 250,
+    # Retry time should be larger than the timeout.
     "retry": 70,
     "queue_limit": 500,
     "label": "Django Q",
+    # Use the default django-redis configuration
     "django_redis": "default",
 }
-print(Q_CLUSTER)
+
 WSGI_APPLICATION = "config.wsgi.application"
 
 

@@ -73,6 +73,8 @@ Investurtle:
 - [Django](https://www.djangoproject.com/)
 - [Heroku](www.heroku.com)
 - [PostgresDB](www.postgresql.org)
+- [Redis](https://redis.io)
+- [heroku-redis-addon](https://devcenter.heroku.com/articles/heroku-redis)
 
 <!-- GETTING STARTED -->
 
@@ -118,11 +120,14 @@ This is an example of how to list things you need to use the software and how to
    # Follow this step to create the superuser(for admin)
    ```
 6. It's ready to run on your local server. Go to 127.0.0.1:8000/home after running this command.
+
    ```sh
-   python manage.py runserver 8000
-   redis-server
-   python manage.py qcluster
    # Run local copy on the localhost port 8000.
+   python manage.py runserver 8000
+   # Run the redis instance. The default is localhost:6379
+   redis-server
+   # Run the qcluster configured on settings.py which will push the tasks to the queue.
+   python manage.py qcluster
    ```
 
 <!-- USAGE EXAMPLES -->
@@ -182,6 +187,9 @@ Libraries and templates used
 - [dj-database-url](https://pypi.org/project/dj-database-url/)
 - [gunicorn](https://docs.gunicorn.org/en/stable/configure.html)
 - [psycopg2-binary](https://pypi.org/project/psycopg2-binary/)
+- [django-redis](https://github.com/jazzband/django-redis)
+- [redis](https://github.com/andymccurdy/redis-py)
+- [django-q](https://github.com/Koed00/django-q)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
