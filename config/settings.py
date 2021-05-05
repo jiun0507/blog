@@ -109,18 +109,7 @@ Q_CLUSTER = {
     "retry": 70,
     "queue_limit": 500,
     "label": "Django Q",
-    "redis": {
-        "host": os.getenv("REDIS_HOST"),
-        "port": os.getenv("REDIS_PORT"),
-        "db": 0,
-        "password": os.getenv("REDIS_PASSWORD")
-        if os.getenv("REDIS_PASSWORD") != ""
-        else None,
-        "socket_timeout": None,
-        "charset": "utf-8",
-        "errors": "strict",
-        "unix_socket_path": None,
-    },
+    "django_redis": "default",
 }
 print(Q_CLUSTER)
 
