@@ -123,7 +123,6 @@ Q_CLUSTER = {
     },
 }
 print(Q_CLUSTER)
-print(Q_CLUSTER["redis"]["password"])
 
 WSGI_APPLICATION = "config.wsgi.application"
 
