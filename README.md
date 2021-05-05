@@ -120,6 +120,8 @@ This is an example of how to list things you need to use the software and how to
 6. It's ready to run on your local server. Go to 127.0.0.1:8000/home after running this command.
    ```sh
    python manage.py runserver 8000
+   redis-server
+   python manage.py qcluster
    # Run local copy on the localhost port 8000.
    ```
 

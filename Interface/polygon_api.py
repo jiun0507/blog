@@ -169,3 +169,8 @@ class PolygonInterface:
             raise Exception
 
         return response.tickers
+
+    def get_market_status_now(self):
+        market_status = self.client.reference_market_status()
+
+        return market_status

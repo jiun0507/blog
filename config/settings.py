@@ -40,7 +40,6 @@ ALLOWED_HOSTS = ["tranquil-journey-32319.herokuapp.com", "127.0.0.1"]
 # ALLOWED_HOSTS = "*"
 
 # Application definition
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -48,6 +47,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_q",
     "financial_statement",
     "valuation",
     "user",
@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "company",
     "notification",
 ]
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -87,6 +88,42 @@ TEMPLATES = [
         },
     },
 ]
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/0",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    }
+}
+
+Q_CLUSTER = {
+    "workers": 8,
+    "recycle": 500,
+    "timeout": 60,
+    "compress": True,
+    "cpu_affinity": 1,
+    "save_limit": 250,
+    "retry": 70,
+    "queue_limit": 500,
+    "label": "Django Q",
+    "redis": {
+        "host": os.getenv("REDIS_HOST"),
+        "port": os.getenv("REDIS_PORT"),
+        "db": 0,
+        "password": os.getenv("REDIS_PASSWORD")
+        if os.getenv("REDIS_PASSWORD") != ""
+        else None,
+        "socket_timeout": None,
+        "charset": "utf-8",
+        "errors": "strict",
+        "unix_socket_path": None,
+    },
+}
+print(Q_CLUSTER)
+print(Q_CLUSTER["redis"]["password"])
 
 WSGI_APPLICATION = "config.wsgi.application"
 
