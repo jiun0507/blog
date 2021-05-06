@@ -38,4 +38,4 @@ class FollowRelation(models.Model):
     followee = models.ManyToManyField(User, related_name="followee")
 
     def __str__(self):
-        return self.follower.name
+        return self.follower.username

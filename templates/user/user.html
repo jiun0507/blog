@@ -20,8 +20,18 @@
                     <li class="flex items-center py-3">
                         <span>Status</span>
                         <span class="ml-auto">
-                            <span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Active</span>
+                            {%if following%}
+                            <span class="bg-green-500 py-1 px-2 rounded text-white text-sm">
+                                <a href="{% url "user:unfollow" user.id %}">unfollow</a></li>
+                            </span>
+                            {%else%}
+                                <span class="bg-green-500 py-1 px-2 rounded text-white text-sm">
+                                    <a href="{% url "user:follow" user.id %}">follow</a></li>
+                                </span>
+                            {%endif%}
+                            
                         </span>
+                        
                     </li>
                     <li class="flex items-center py-3">
                         <span>Followers</span>

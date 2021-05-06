@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from . import models
 
 
@@ -8,14 +9,13 @@ class UserAdmin(admin.ModelAdmin):
     """ User Admin Definition """
 
     list_display = (
+        "id",
         "username",
         "email",
         "is_active",
     )
 
 
-from user.models import FollowRelation
-
-
+@admin.register(models.FollowRelation)
 class FollowRelationAdmin(admin.ModelAdmin):
     list_display = ("follower",)
