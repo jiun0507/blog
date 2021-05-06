@@ -47,11 +47,15 @@ class UserView(View):
             following = True
         else:
             following = False
+        followers = user.followee
+
         context = {
             "notifications": notifications,
             "valuations": valuations,
             "user": user,
             "following": following,
+            "followers": followers,
+            "number_of_followers": followers.count(),
         }
         return render(request, "user/user.html", context=context)
 
