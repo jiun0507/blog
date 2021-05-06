@@ -12,3 +12,10 @@ class UserAdmin(admin.ModelAdmin):
         "email",
         "is_active",
     )
+
+
+from user.models import FollowRelation
+
+
+class FollowRelationAdmin(admin.ModelAdmin):
+    list_display = ("follower",)
