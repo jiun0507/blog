@@ -135,7 +135,6 @@ This is an example of how to list things you need to use the software and how to
 ## Usage
 
 - Stock Fianncials: investurtle provides the financial statements of publicly enlisted companies in United States. All the financial statements data comes from the [polygon.io](https://polygon.io).
-- Valuation: Investurtle provides an interface through which anyone can evaluate the company's worth based on the financial statements.
 - Community: Investurtle provides a platform on which people can share their thoughts and valuations of the companies.
 - Alarm system: Investurtle has real-time stock price. If you set the price for a stock ticker, Investurtle will send you an notification when the stock price is below your price of interest.
 
