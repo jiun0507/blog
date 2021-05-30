@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "core",
     "company",
     "notification",
+    "post",
 ]
 
 

@@ -29,4 +29,5 @@ urlpatterns = [
     path("user/", include("user.urls", namespace="user")),
     path("company/", include("company.urls", namespace="company")),
     path("notification/", include("notification.urls", namespace="notification")),
+    path("post/", include("post.urls", namespace="post")),
 ]
