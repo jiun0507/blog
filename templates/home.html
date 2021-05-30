@@ -2,15 +2,18 @@
 {% block title %}
     home
 {% endblock %}
-
 {% block content %}
     <section class="grid grid-cols-2 gap-4 px-20 py-10">
         {% for post in posts %}
             <div>
-                <div class="flex justify-between border-b border-gray-400 bg-gray-50">
+                <div class="flex justify-between border-gray-400 bg-gray-50">
                     <h4 class="text-2xl font-serif"> {{post.title}} </h4>
-                    <h4 class="text-lg font-serif">{{post.category} }</h4>    
+                    <h4 class="text-lg font-serif">{{post.category}}</h4>    
                 </div>
+                <div>{{post.content}}...</div>
+                <a href="{% url "post:get" post.id %}">
+                    Read More...
+                </a>
             </div>
         {% endfor %}
     </section>
