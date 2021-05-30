@@ -1,3 +1,16 @@
 from django.contrib import admin
 
-# Register your models here.
+from . import models
+
+
+@admin.register(models.Post)
+class Post(admin.ModelAdmin):
+
+    """ User Admin Definition """
+
+    list_display = (
+        "id",
+        "category",
+        "title",
+        "content",
+    )

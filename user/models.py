@@ -29,13 +29,3 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
-
-
-class FollowRelation(models.Model):
-    follower = models.OneToOneField(
-        User, related_name="follower", on_delete=models.CASCADE
-    )
-    followee = models.ManyToManyField(User, related_name="followee")
-
-    def __str__(self):
-        return self.follower.username

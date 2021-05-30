@@ -14,8 +14,3 @@ class UserAdmin(admin.ModelAdmin):
         "email",
         "is_active",
     )
-
-
-@admin.register(models.FollowRelation)
-class FollowRelationAdmin(admin.ModelAdmin):
-    list_display = ("follower",)
