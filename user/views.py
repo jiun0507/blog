@@ -1,14 +1,7 @@
-from django.contrib.auth import authenticate, login, logout
-from django.db import IntegrityError
-from django.http import HttpResponse
-from django.http.response import Http404
-from django.shortcuts import redirect, render
-from django.urls import reverse, reverse_lazy
+from django.shortcuts import render
 from django.views import View
-from django.views.generic import FormView
 
 from notification.models import Notification
-from user.models import FollowRelation, User
 from valuation.models import Valuation
 
 from . import forms

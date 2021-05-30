@@ -21,23 +21,3 @@ def home_view(request):
     }
 
     return render(request, "home.html", context=context)
-
-
-def search(request):
-
-    company_profile_use_case = CompanyProfileUseCase()
-
-    input = request.GET.get("input")
-
-    ticker_search_list = company_profile_use_case.get_company_profile_list_by_ticker(
-        ticker=input
-    )
-    name_search_list = company_profile_use_case.get_company_profile_list_by_name(
-        name=input
-    )
-
-    context = {
-        "ticker_list": ticker_search_list,
-        "name_list": name_search_list,
-    }
-    return render(request, template_name="search.html", context=context)
