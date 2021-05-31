@@ -3,16 +3,20 @@
     home
 {% endblock %}
 {% block content %}
-    <section class="grid grid-cols-2 gap-4 px-20 py-10">
+    <div class="flex justify-between px-20 py-10">
+        <h4 class="text-2xl font-serif font-bold"> What's new? </h4>
+    </div>
+    <section class="grid grid-cols-2 gap-4 px-20">
         {% for post in posts %}
             <div>
-                <div class="flex justify-between border-gray-400 bg-gray-50">
-                    <h4 class="text-2xl font-serif"> {{post.title}} </h4>
-                    <h4 class="text-lg font-serif">{{post.category}}</h4>    
+                <div>
+                    <h4 class="font-thin font-mono">{{post.updated_at}} by Jiun Kim</h4>
+                    <h4 class="text-2xl font-serif font-bold"> {{post.title}} </h4>
+                    <h4 class="text-lg font-serif">({{post.category}})</h4>    
                 </div>
                 <div>{{post.content}}...</div>
                 <a href="{% url "post:get" post.id %}">
-                    Read More...
+                    <h4 class="text-red-600">Read More</h4>
                 </a>
             </div>
         {% endfor %}
