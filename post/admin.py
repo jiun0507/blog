@@ -14,3 +14,19 @@ class Post(admin.ModelAdmin):
         "title",
         "content",
     )
+
+
+class WorkInline(admin.TabularInline):
+    model = models.Work
+
+
+@admin.register(models.Log)
+class Log(admin.ModelAdmin):
+
+    """ User Admin Definition """
+
+    list_display = (
+        "date",
+        "content",
+    )
+    inlines = (WorkInline,)
