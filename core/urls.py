@@ -7,7 +7,6 @@ from core.views import home_view, landing_page_view, out_of_service
 app_name = "core"
 
 urlpatterns = [
-    path("", home_view, name="home"),
-    path("land", landing_page_view, name="landing_page"),
+    path("", landing_page_view, name="landing_page"),
     path("out_of_service/<str:service>", out_of_service, name="out_of_service"),
 ]
