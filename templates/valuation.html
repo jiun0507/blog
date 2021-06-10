@@ -1,0 +1,33 @@
+
+{% extends "base.html" %}
+{% block title %}
+    home
+{% endblock %}
+{% block content %}
+    <section class="grid grid-cols-2 gap-4 px-20 py-10">
+        <!-- <article class="flex justify-evenly py-10"> -->
+        <div>
+            <div class="flex justify-between border-b border-gray-400 bg-gray-50">
+                <h4 class="text-2xl font-serif"> Valuations</h4>
+                <h4 class="text-lg font-serif">more</h4>    
+            </div>
+            {% for valuation in valuations %}
+                <h4 class="font-serif">
+                    {{valuation.id}}{{valuation.value}}
+                </h4>
+            {% endfor %}
+        </div>
+        <div>
+            <div class="flex justify-between border-b border-gray-400 bg-gray-50">
+                <h4 class="text-2xl font-serif">Notifications</h4>
+                <h4 class="text-lg font-serif">more</h4>    
+            </div>            {% for notification in notifications %}
+                <h4 class="font-serif">
+                    {{notification.company}}{{notifiation.price}}
+                </h4>
+            {% endfor %}
+        </div>
+
+    </section>
+
+{%endblock%}

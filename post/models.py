@@ -1,5 +1,12 @@
 from django.db import models
 
+WORKOUT = "workout"
+ALGORITHM = "algorithm"
+SOFTWARE_DEVELOPMENT = "software development"
+READING = "reading"
+DOTORI_POSTOFFICE = "dotori postoffice"
+WEDDEW = "weddew"
+
 
 class Post(models.Model):
     MEMO = "memo"
@@ -19,17 +26,13 @@ class Log(models.Model):
 
 
 class Work(models.Model):
-    WORKOUT = "workout"
-    ALGORITHM = "algorithm"
-    SOFTWARE_DEVELOPMENT = "software development"
-    READING = "reading"
-    MARKETING = "marketing"
     WORK_CATEGORIES = (
         (WORKOUT, "WORKOUT"),
         (ALGORITHM, "ALGORITHM"),
-        (SOFTWARE_DEVELOPMENT, "SOFTWARE_DEVELOPMENT"),
+        (SOFTWARE_DEVELOPMENT, "SOFTWARE DEVELOPMENT"),
         (READING, "READING"),
-        (MARKETING, "MARKETING"),
+        (DOTORI_POSTOFFICE, "DOTORI POSTOFFICE"),
+        (WEDDEW, "WEDDEW"),
     )
     work_choices = models.CharField(
         choices=WORK_CATEGORIES, max_length=100, blank=False

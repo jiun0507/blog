@@ -21,31 +21,32 @@
             </div>
         {% endfor %}
     </section>
-    <section class="grid grid-cols-2 gap-4 px-20 py-10">
-        <!-- <article class="flex justify-evenly py-10"> -->
-        <div>
-            <div class="flex justify-between border-b border-gray-400 bg-gray-50">
-                <h4 class="text-2xl font-serif"> Valuations</h4>
-                <h4 class="text-lg font-serif">more</h4>    
-            </div>
-            {% for valuation in valuations %}
-                <h4 class="font-serif">
-                    {{valuation.id}}{{valuation.value}}
-                </h4>
-            {% endfor %}
-        </div>
-        <div>
-            <div class="flex justify-between border-b border-gray-400 bg-gray-50">
-                <h4 class="text-2xl font-serif">Notifications</h4>
-                <h4 class="text-lg font-serif">more</h4>    
-            </div>            {% for notification in notifications %}
-                <h4 class="font-serif">
-                    {{notification.company}}{{notifiation.price}}
-                </h4>
-            {% endfor %}
-        </div>
+    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
 
-    </section>
+    <!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"
+    />
+    
+    <div>
+        <!-- Prepare a container for your calendar. -->
+        <div style="text-align: center;"><strong>나의 GitHub Contribution 그래프</strong></div> 
+        <div class="calendar">
+            <!-- Loading stuff -->
+            Loading data ...
+        </div>
+    </div>
+    
+    <script>
+        GitHubCalendar(".calendar", "jiun0507", { responsive: true, tooltips: false, global_stats: false}).then(function() {
+            // delete the space underneath the module bar which is caused by minheight 
+            document.getElementsByClassName('calendar')[0].style.minHeight = "100px";
+            // hide more and less legen below the contribution graph
+            document.getElementsByClassName('contrib-legend')[0].style.display = "none";
+        });
+    </script>
+
 
 {% endblock %}
 

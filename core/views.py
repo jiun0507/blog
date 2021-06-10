@@ -18,3 +18,19 @@ def home_view(request):
     }
 
     return render(request, "home.html", context=context)
+
+
+def landing_page_view(request):
+    context = {
+        "algorithms": "algorithms",
+        "weddew": "weddew",
+        "dotori_postoffice": "dotori_postoffice",
+    }
+    return render(request, "landing_page.html", context=context)
+
+
+def out_of_service(request, service):
+    context = {
+        "service": service,
+    }
+    return render(request, "out_of_service.html", context=context)

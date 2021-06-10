@@ -1,16 +1,15 @@
-from django.http.response import Http404
-from django.shortcuts import render
 from django.views import View
 from post.models import Post
+from django.shortcuts import redirect, render
 
 
 class PostView(View):
-    def get(self, request, id):
+    def get(self, request):
         try:
-            post = Post.objects.get(id=id)
+            posts = Post.objects.filter()
         except Post.DoesNotExist:
             return redirect("404.html")
         context = {
-            "post": post,
+            "posts": posts,
         }
-        return render(request, "post/post.html", context=context)
+        return render(request, "post/posts.html", context=context)
