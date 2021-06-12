@@ -12,9 +12,14 @@ class Post(models.Model):
     MEMO = "memo"
     ALGORITHM = "algorithm"
 
-    POST_CHOICES = ((MEMO, "MEMO"), (ALGORITHM, "ALGORITHM"))
+    POST_CHOICES = (
+        (MEMO, "MEMO"),
+        (ALGORITHM, "ALGORITHM"),
+        (WEDDEW, "WEDDEW"),
+        (DOTORI_POSTOFFICE, "DOTORI POSTOFFICE"),
+    )
     title = models.CharField(max_length=100, blank=False)
-    category = models.CharField(choices=POST_CHOICES, max_length=15, blank=True)
+    category = models.CharField(choices=POST_CHOICES, max_length=100, blank=True)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
