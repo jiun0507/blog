@@ -1,17 +1,11 @@
 from django.db import models
 
-WORKOUT = "workout"
-ALGORITHM = "algorithm"
-SOFTWARE_DEVELOPMENT = "software development"
-READING = "reading"
-DOTORI_POSTOFFICE = "dotori postoffice"
-WEDDEW = "weddew"
-
 
 class Post(models.Model):
     MEMO = "memo"
     ALGORITHM = "algorithm"
-
+    DOTORI_POSTOFFICE = "dotori postoffice"
+    WEDDEW = "weddew"
     POST_CHOICES = (
         (MEMO, "MEMO"),
         (ALGORITHM, "ALGORITHM"),
@@ -31,6 +25,12 @@ class Log(models.Model):
 
 
 class Work(models.Model):
+    WORKOUT = "workout"
+    ALGORITHM = "algorithm"
+    SOFTWARE_DEVELOPMENT = "software development"
+    READING = "reading"
+    DOTORI_POSTOFFICE = "dotori postoffice"
+    WEDDEW = "weddew"
     WORK_CATEGORIES = (
         (WORKOUT, "WORKOUT"),
         (ALGORITHM, "ALGORITHM"),
