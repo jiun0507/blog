@@ -16,7 +16,7 @@
         />
         
         <div>
-            <div class="calendar">
+            <div class="calendar justify-between px-20 py-10">
                 <!-- Loading stuff -->
                 Loading data ...
             </div>
@@ -31,17 +31,54 @@
             });
         </script>
     </section>
-    
-    <section class="grid grid-cols-2 gap-4 px-20">
+
+    <section class="gap-4 px-20 py-10">
+        <h4 class="text-2xl font-serif font-bold"> Logs </h4>
         {% for log in logs %}
             <div>
-                <div>
-                    <h4 class="font-thin font-mono">{{log.updated_at}} by Jiun Kim</h4>
-                    <h4 class="text-2xl font-serif font-bold"> {{log.title}} </h4>
-                    <h4 class="text-lg font-serif">({{log.category}})</h4>    
-                </div>
+                <h4 class="font-thin font-mono">{{log.date}} by Jiun Kim</h4>
+                <h4 class="text-xl font-serif font-bold px-5"> {{log.content}} </h4>
+                {% for work in log.works.all %}
+                    <h4 class="font-serif font-bold px-5">{{work.work_choices}} for {{work.hours}} hours</h4>
+                {% endfor %}
             </div>
         {% endfor %}
     </section>
+
+    <div class="ml-0 md:ml-12 lg:w-2/3 sticky">
+        <h1 class="text-2xl font-serif font-bold"> Logs </h1>
+        <div class="container mx-auto w-full h-full">
+            <div class="relative wrap overflow-hidden p-10 h-full">
+                <div class="border-2-2 border-yellow-555 absolute h-full border" style="right: 50%; border: 2px solid #FFC100; border-radius: 1%;"></div>
+                <div class="border-2-2 border-yellow-555 absolute h-full border" style="left: 50%; border: 2px solid #FFC100; border-radius: 1%;"></div>
+                {% for log in logs %}
+                    {% if log.id|divisibleby:2%}
+                        <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                            <div class="order-1 w-5/12"></div>
+                            <div class="order-1 w-5/12 px-1 py-4 text-right">
+                                <p class="mb-3 text-base text-yellow-300">{{log.date}}</p>
+                                <p class="text-sm md:text-base leading-snug text-opacity-100">
+                                    {{log.content}}
+                                </p>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                            <div class="order-1 w-5/12"></div>
+                            <div class="order-1  w-5/12 px-1 py-4 text-left">
+                                <p class="mb-3 text-base text-yellow-300">{{log.date}}</p>
+                                <p class="text-sm md:text-base leading-snug">
+                                    {{log.content}}
+                                </p>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                {% endfor %}
+
+            </div>
+        </div>
+      </div>
+    </div>
 
 {% endblock %}

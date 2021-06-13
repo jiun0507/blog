@@ -43,4 +43,4 @@ class Work(models.Model):
         choices=WORK_CATEGORIES, max_length=100, blank=False
     )
     hours = models.IntegerField(default=1)
-    log = models.ForeignKey(Log, on_delete=models.CASCADE)
+    log = models.ForeignKey(Log, on_delete=models.CASCADE, related_name="works")
