@@ -8,9 +8,10 @@
         <h4 class="text-2xl font-serif font-bold"> {{post.title}} </h4>
     </div>
     <section class="gap-4 px-20">
-        {{post.created_at}}
-        {{post.category}}
-        {{post.content}}
+        <h4 class="font-thin font-mono">{{post.updated_at}} by Jiun Kim</h4>
+        <h4 class="text-2xl font-serif font-bold"> {{post.title}} </h4>
+        <h4 class="text-lg font-serif">category: {{post.category}}</h4>    
+        <div>{{post.content|linebreaks}}</div>
     </section>
 
 {% endblock %}
