@@ -11,9 +11,9 @@
         {% for post in posts %}
             <div>
                 <div>
-                    <h4 class="font-thin font-mono">{{post.updated_at}} by Jiun Kim</h4>
+                    <h4 class="font-thin font-mono">{{post.created_at}} by Jiun Kim</h4>
                     <h4 class="text-2xl font-serif font-bold"> {{post.title}} </h4>
-                    <h4 class="text-lg font-serif">({{post.category}})</h4>    
+                    <h4 class="text-lg font-serif">category: {{post.category}}</h4>    
                 </div>
                 <div>{{post.content|truncatechars:255}}...</div>
                 <a href="{% url "post:get" post.id %}">
