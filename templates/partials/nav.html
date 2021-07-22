@@ -1,8 +1,15 @@
 {%load static%}
+
 <div>
     <a href="{% url "core:landing_page" %}" class="mr-6">
         <img class="w-24 mt-8 ml-16" src="{% static 'img/jiun2.png' %}" />
     </a>
-    
 </div>
-
+<div>
+    <ul class="flex .justify-between text-sm font-medium">
+        <li class="ml-8"><a href="{% url "post:logs" %}">Posts</a></li>
+        <li class="ml-8"><a href="{% url "post:list" %}">Logs</a></li>
+        <li class="ml-8"><a href="{% url "user:profile" %}">Books</a></li>
+        <li class="ml-8"><a href="{% url "user:profile" %}">Weddew</a></li>
+    </ul>
+</div>
