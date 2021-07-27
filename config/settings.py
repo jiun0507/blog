@@ -36,7 +36,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = bool(os.environ.get("DEBUG", True))
 # DEBUG = False
 
-ALLOWED_HOSTS = ["jiun-blog.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["jiun-blog.herokuapp.com", "127.0.0.1", "www.jiun-kim.com"]
 # ALLOWED_HOSTS = "*"
 
 # Application definition
