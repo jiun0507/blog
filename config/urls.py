@@ -30,4 +30,5 @@ urlpatterns = [
     path("company/", include("company.urls", namespace="company")),
     path("notification/", include("notification.urls", namespace="notification")),
     path("post/", include("post.urls", namespace="post")),
+    path("book/", include("book.urls", namespace="book")),
 ]
