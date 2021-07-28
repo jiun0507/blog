@@ -2,6 +2,8 @@ from django.shortcuts import render
 from book.models import Book
 from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
+from django.views import View
+from django.http import Http404
 
 
 def list_book(request):
@@ -17,3 +19,15 @@ def list_book(request):
         "books": books,
     }
     return render(request, "book/books.html", context=context)
+
+
+class BookView(View):
+    def get(self, request, book_id):
+        try:
+            book = Book.objects.get(id=book_id)
+        except Book.DoesNotExist:
+            raise Http404
+        context = {
+            "book": book,
+        }
+        return render(request, "book/book.html", context=context)

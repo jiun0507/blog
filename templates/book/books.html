@@ -5,19 +5,17 @@
 {% block content %}
 
     <div class="flex justify-between px-20 py-10">
-        <h4 class="text-2xl font-serif font-bold"> Jiun's Books </h4>
+        <h4 class="text-2xl font-serif font-bold"> Books I read </h4>
     </div>
     <section class="grid gap-4 px-20">
         {% for book in books %}
             <div>
                 <div>
-                    <h4 class="font-thin font-mono">{{book.created_at}} by Jiun Kim</h4>
-                    <h4 class="text-2xl font-serif font-bold"> {{book.title}} </h4>
-                    <h4 class="text-lg font-serif">Writer: {{book.writer}}</h4>    
+                    <a href="{% url "book:get" book.id %}">
+                        <h4 class="text-2xl font-serif font-bold"> {{book.title}} </h4>
+                    </a>
+                    <h4 class="text-m font-serif">Writer: {{book.writer}}</h4>    
                 </div>
-                <a href="{% url "post:get" post.id %}">
-                    <h4 class="text-red-600">Read More</h4>
-                </a>
             </div>
         {% endfor %}
     </section>

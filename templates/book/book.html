@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}
+    post
+{% endblock %}
+{% block content %}
+
+    <div class="flex justify-between px-20 py-10">
+        <h4 class="text-2xl font-serif font-bold"> {{book.title}} </h4>
+    </div>
+    <section class="gap-4 px-20">
+        <h4 class="font-thin font-mono">{{book.created_at}} by Jiun Kim</h4>
+        <h4 class="text-m font-serif font-bold"> written by {{book.writer}} </h4>
+        <div>{{book.content|linebreaks}}</div>
+    </section>
+
+{% endblock %}
