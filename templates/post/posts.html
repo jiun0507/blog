@@ -11,47 +11,14 @@
         {% for post in posts %}
             <div>
                 <div>
-                    <h4 class="font-thin font-mono">{{post.created_at}} by Jiun Kim</h4>
-                    <h4 class="text-2xl font-serif font-bold"> {{post.title}} </h4>
-                    <h4 class="text-lg font-serif">category: {{post.category}}</h4>    
+                    <a href="{% url "post:get" post.id %}">
+                        <h4 class="text-l font-serif"> - {{post.title}} </h4>
+                    </a>
                 </div>
-                <div>{{post.content|truncatechars:255}}...</div>
-                <a href="{% url "post:get" post.id %}">
-                    <h4 class="text-red-600">Read More</h4>
-                </a>
             </div>
         {% endfor %}
     </section>
-    <section class="px-20 py-10">
-        <div class="col-12">
-            <nav>
-                <ul class="pagination justify-content-center">
-                    {% if posts.has_previous %}  
-                                               
-                        <li class="page-item">
-                            <a class="page-link" href="?p={{posts.previous_page_number }}">이전으로</a>
-                        </li>
-                    {% else %}
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#">이전으로</a>
-                    </li>
-                    {% endif %}
-                    <li class="page-item">
-                        <a class="page-link" href="#">{{posts.number}}/{{posts.paginator.num_pages}}</a>
-                    </li>
-                    {% if posts.has_next %}
-                    <li class="page-item">
-                        <a class="page-link" href="?p={{posts.next_page_number }}">다음으로</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#">다음으로</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </nav>
-        </div>
-    </section>
+
 
 {% endblock %}
 

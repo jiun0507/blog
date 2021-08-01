@@ -7,10 +7,11 @@ from post.models import Log, Post
 
 def list_post(request):
     try:
-        all_posts = Post.objects.all().order_by("-created_at")
-        page = int(request.GET.get("p", 1))  # 없으면 1로 지정
-        paginator = Paginator(all_posts, 5)  # 한 페이지 당 몇개 씩 보여줄 지 지정
-        posts = paginator.get_page(page)
+        posts = Post.objects.all()
+        # all_posts = Post.objects.all().order_by("-created_at")
+        # page = int(request.GET.get("p", 1))  # 없으면 1로 지정
+        # paginator = Paginator(all_posts, 5)  # 한 페이지 당 몇개 씩 보여줄 지 지정
+        # posts = paginator.get_page(page)
     except Post.DoesNotExist:
         return redirect("404.html")
 
