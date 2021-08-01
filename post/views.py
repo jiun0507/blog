@@ -7,7 +7,7 @@ from post.models import Log, Post
 
 def list_post(request):
     try:
-        posts = Post.objects.all()
+        posts = Post.objects.all().order_by("-created_at")
         # all_posts = Post.objects.all().order_by("-created_at")
         # page = int(request.GET.get("p", 1))  # 없으면 1로 지정
         # paginator = Paginator(all_posts, 5)  # 한 페이지 당 몇개 씩 보여줄 지 지정
